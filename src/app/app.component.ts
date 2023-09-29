@@ -8,6 +8,9 @@ interface Days {
   description: string,
   name: string
 };
+// interface Names {
+//   name: string
+// };
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,6 +25,16 @@ export class AppComponent {
     // const daysCollection = collection(this.firestore, 'days');
     // this.day$ = collectionData(daysCollection) as Observable<Days[]>;
   }
+  // selectedDays: any[] = [];
+  // checkDays: any[]=[
+  //   {name :'Monday', value: 'Monday', checked: false}, 
+  //   {name :'Tuesday', value: 'Tuesday', checked: false},
+  //   {name :'Wednesday', value: 'Wednesday', checked: false}, 
+  //   {name :'Thursday', value: 'Thursday', checked: false},
+  //   {name :'Friday', value: 'Friday', checked: false}, 
+  //   {name :'Saturday', value: 'Saturday', checked: false},
+  //   {name :'Sunday', value: 'Sunday', checked: false},
+  // ];
   days:any=[] as Observable<Days>[];
 
   refreshDays(){
@@ -29,7 +42,11 @@ export class AppComponent {
       this.days = res;
     })
   }
-  
+  // get selectedOptions() { // right now: ['1','3']
+  //   return this.checkDays
+  //             .filter(opt => opt.checked)
+  //             .map(opt => opt.value)
+  // }
   ngOnInit(){
     this.refreshDays();
   }
@@ -43,6 +60,7 @@ export class AppComponent {
       console.log(err);
     })
   }
+
   // addDays(newDays:string){
   //   this.service.addDays(newDays).then((res) => {
   //     console.log(res);
@@ -55,5 +73,11 @@ export class AppComponent {
       this.refreshDays();
     })
   }
+
+  // get selectedDaysSubjects(): any[] {
+  //   return this.checkDays.filter((e,i) => this.selectedDays[i]);
+  // }
+
+  
 
 }
