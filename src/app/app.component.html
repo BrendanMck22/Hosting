@@ -6,16 +6,35 @@
   <body>
     <h1>Click what days of the week you are free!</h1>
     <h1 *ngFor="let day of days">
-      <b> {{day.name}} is free on {{day.description}}</b>
+      <b> {{day.name}} is free on {{day.selectedDays}}</b>
       <button (click)="deleteDays(day.id)">Delete Day</button>
     </h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" required><br>
+    
+      <label>Days of the Week:</label><br>
+      <div formGroupName="description">
+        <label><input type="checkbox" formControlName="Monday" value="Monday"> Monday</label><br>
+        <label><input type="checkbox" formControlName="Tuesday" value="Tuesday"> Tuesday</label><br>
+        <label><input type="checkbox" formControlName="Wednesday" value="Wednesday"> Wednesday</label><br>
+        <label><input type="checkbox" formControlName="Thursday" value="Thursday"> Thursday</label><br>
+        <label><input type="checkbox" formControlName="Friday" value="Friday"> Friday</label><br>
+        <label><input type="checkbox" formControlName="Saturday" value="Saturday"> Saturday</label><br>
+        <label><input type="checkbox" formControlName="Sunday" value="Sunday"> Sunday</label><br>
+      </div>
+    
+      <button [disabled]="!form.valid" type="submit">Submit</button>
+    </form>
     <!-- <label>Enter day: </label>
   <input #addDay #addPerson>
   <button (click)="addDays(addDay.name)">Add Day</button> -->
-  <form #f="ngForm" (ngSubmit)="addDays(f)">
+
+  <!-- <form #f="ngForm" (ngSubmit)="addDays(f)">
     <input type="text" name="name" ngModel>
     <br>
-    <input type="text" name="description" ngModel>
+    <input type="text" name="description" ngModel> -->
+
     <!-- <div *ngFor="let day_s of checkDays; let i=index">
     <input type="checkbox" [(ngModel)]="selectedDays[i]" />{{day_s.description}}
   </div>
@@ -30,9 +49,10 @@
         <label><input type="checkbox" name="description" value="Saturday" ngModel> Saturday</label><br>
         <label><input type="checkbox" name="description" value="Sunday" ngModel> Sunday</label><br>
     <br> -->
-    <button type="submit">Save Submission</button>
+
+    <!-- <button type="submit">Save Submission</button>
   </form>
-  
+   -->
     <!-- <form (ngSubmit) = "addDays(addDay.value)"> -->
     <!-- <div class="buttons">
         <label>
