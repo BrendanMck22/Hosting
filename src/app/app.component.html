@@ -2,13 +2,10 @@
 <html>
     <head>
 		<title>Ufree??</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 	</head>
   <body>
     <h1>Click what days of the week you are free!</h1>
-    <h3 *ngFor="let day of days">
-      <b> {{day.name}} is free on {{day.selectedDays}}</b>
-      <button (click)="deleteDays(day.id)">Delete Day</button>
-    </h3>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <label for="name">Name:</label>
       <input type="text" id="name" formControlName="name" required><br>
@@ -26,12 +23,38 @@
     
       <button [disabled]="!form.valid" type="submit">Submit</button>
     </form>
+    <h3 *ngFor="let day of days">
+      <b> {{day.name}} is free on {{day.selectedDays}}</b>
+      <button (click)="deleteDays(day.id)">Delete Entry</button>
+    </h3>
+    <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" required><br>
+    
+      <label>Days of the Week:</label><br>
+      <div formGroupName="description">
+        <label><input type="checkbox" formControlName="Monday" value="Monday"> Monday</label><br>
+        <label><input type="checkbox" formControlName="Tuesday" value="Tuesday"> Tuesday</label><br>
+        <label><input type="checkbox" formControlName="Wednesday" value="Wednesday"> Wednesday</label><br>
+        <label><input type="checkbox" formControlName="Thursday" value="Thursday"> Thursday</label><br>
+        <label><input type="checkbox" formControlName="Friday" value="Friday"> Friday</label><br>
+        <label><input type="checkbox" formControlName="Saturday" value="Saturday"> Saturday</label><br>
+        <label><input type="checkbox" formControlName="Sunday" value="Sunday"> Sunday</label><br>
+      </div>
+    
+      <button [disabled]="!form.valid" type="submit">Submit</button>
+    </form> -->
     <h2>
       This is where the days that suits most people will be displayed
     </h2>
-    <p>
-      {{ bestDay }}
-    </p>
+    <ol>
+    <ng-container *ngFor="let re of res; let i=index">
+      <li>{{ re.name }}</li>
+   </ng-container>
+  </ol>
+    <!-- <ol *ngFor="let re of res">
+      <li> {{ re.name }} </li>
+    </ol> -->
     <!-- <label>Enter day: </label>
   <input #addDay #addPerson>
   <button (click)="addDays(addDay.name)">Add Day</button> -->
