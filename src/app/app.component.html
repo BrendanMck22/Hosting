@@ -4,7 +4,19 @@
 		<title>Ufree??</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 	</head>
-  <body>
+    <body>
+  <h1> Welcome to ufree!</h1>
+<h2> Please enter the name of your event below</h2>
+<form [formGroup]="formEvent" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" required><br>
+    <button [disabled]="!formEvent.valid" type="submit">Submit</button>
+</form>
+<router-outlet></router-outlet>
+    </body>
+</html>
+
+  <!-- </form>
     <h1>Click what days of the week you are free!</h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <label for="name">Name:</label>
@@ -26,7 +38,7 @@
     <h3 *ngFor="let day of days">
       <b> {{day.name}} is free on {{day.selectedDays}}</b>
       <button (click)="deleteDays(day.id)">Delete Entry</button>
-    </h3>
+    </h3> -->  
     <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <label for="name">Name:</label>
       <input type="text" id="name" formControlName="name" required><br>
@@ -44,14 +56,14 @@
     
       <button [disabled]="!form.valid" type="submit">Submit</button>
     </form> -->
-    <h2>
+    <!-- <h2>
       This is where the days that suits most people will be displayed
     </h2>
     <ol>
-    <ng-container *ngFor="let re of res; let i=index">
+    <ng-container *ngFor="let re of result; let i=index">
       <li>{{ re.name }}</li>
    </ng-container>
-  </ol>
+  </ol> -->
     <!-- <ol *ngFor="let re of res">
       <li> {{ re.name }} </li>
     </ol> -->
@@ -115,5 +127,9 @@
           <input type="submit" value="Submit">
       </div> -->
     <!-- </form> -->
-    </body>
-</html>
+    <!-- <nav>
+      <a routerLink="/">Home</a>
+      <a routerLink="/main">Main Application</a>
+    </nav> -->
+    <!-- <router-outlet></router-outlet> -->
+

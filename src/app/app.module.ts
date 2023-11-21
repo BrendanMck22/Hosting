@@ -7,6 +7,7 @@ import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { SharedService } from './shared.service';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyArjcE6BnDJRJQ_qKWxjgfJnzFnv2ir0h0",
@@ -21,7 +22,8 @@ const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
