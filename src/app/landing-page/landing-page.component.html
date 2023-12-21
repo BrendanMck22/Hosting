@@ -5,6 +5,12 @@
     <input type="text" id="name" formControlName="name" required><br>
     <button [disabled]="!formEvent.valid" type="submit">Submit</button>
   </form> -->
+  <!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
   <h1>Click what days of the week you are free!</h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <label for="name">Name:</label>
@@ -52,3 +58,5 @@
       <li>{{ re.name }}</li>
    </ng-container>
   </ol>
+</body>
+</html>
